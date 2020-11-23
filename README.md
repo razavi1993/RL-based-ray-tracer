@@ -1,6 +1,6 @@
 # RL-based-ray-tracer
 
-Discretization of the states 
+Discretization of states 
 
 ![](/scene-rl-based/img2.png)
 
