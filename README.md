@@ -1,10 +1,10 @@
 # RL-based-ray-tracer
 
-Discretization of states and actions
+Discretization of the states 
 
 ![](/scene-rl-based/img2.png)
 
-Result of uniform sampling: 256 spp
+Result of uniform sampling: 256 spp 
 
 ![](/scene-uniform/img.png)
 
