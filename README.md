@@ -2,7 +2,7 @@
 
 Discretization of states 
 
-![](/scene-rl-based/img2.png=256x256)
+<img src="/scene-rl-based/img2.png">
 
 Result of uniform sampling: 256 spp 
 
