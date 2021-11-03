@@ -6,8 +6,8 @@ Discretization of states
 
 Result of uniform sampling: 256 spp 
 
-![](/scene-uniform/img.png=256x256)
+<img src="/scene-uniform/img.png">
 
 Result of RL-based sampling: 256 spp
 
-![](/scene-rl-based/img.png=256x256)
+<img src="/scene-rl-based/img.png">
