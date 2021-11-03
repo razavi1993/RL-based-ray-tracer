@@ -32,7 +32,6 @@ end
 # radiance function
 function radiance(r::ray, world::hitable, depth::Int)
     put = vec(1,1,1)
-    local prev_paths, prev_cell_id, prev_patch_ind, prev_qvalues
     for i=1:depth
         hit_surface = hit(world, r, 0.0001, typemax(Float64))
         if !ismissing(hit_surface)
