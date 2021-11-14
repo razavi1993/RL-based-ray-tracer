@@ -88,23 +88,20 @@ function hit(s::sphere, r::ray, tmin::Float64, tmax::Float64)
     b = 2.0*dot(r.d, r.o - s.center)
     c = dot(r.o - s.center, r.o - s.center) - s.radius*s.radius
     Δ = b*b - 4.0*a*c
-    if Δ <= 0.
+    if Δ < 0.
         return missing
-    end
-    t1 = (-b-sqrt(Δ))/(2.0*a)
-    t2 = (-b-sqrt(Δ))/(2.0*a)
-    if t2 > 0.
-        if t1 > 0.
-            p = point(r, t1)
-            normal = unit(p - s.center)
-            return record(t1, p, normal, s.mater)
+    else
+        t1 = (-b-sqrt(Δ))/(2.0*a)
+        t2 = (-b+sqrt(Δ))/(2.0*a)
+        if t2 < 0. 
+            return missing
         else
-            p = point(r, t2)
-            normal = unit(s.center - p)
-            return record(t2, p, normal, s.mater)
+            t = (t1 > 0.) ? t1 : t2
+            p = point(r, t)
+            normal = unit(p - s.center)
+            return record(t, p, normal, s.mater)
         end
     end
-    return missing
 end
 
 # nearest object
@@ -113,7 +110,7 @@ function hit(h::hit_list, r::ray, tmin::Float64, tmax::Float64)
     hit_surface = missing
     for surface in h.list
         temp_surface = hit(surface, r, tmin, tc)
-        if !ismissing(temp_surface)
+        if !ismissing(temp_surface) && tmin < temp_surface.t < tc
             hit_surface = temp_surface
             tc = hit_surface.t
         end
