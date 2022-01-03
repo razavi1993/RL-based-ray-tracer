@@ -9,5 +9,13 @@ A quadratic B-spline encoder with trainable parameters is even better than a dee
 
 <img src="/scene2.gif">
 
+Ground truth
+
+<img src="/gt.png">
+
+Mape error
+
+<img src="/plot.png">
+
 
 
